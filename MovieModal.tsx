@@ -27,13 +27,13 @@ const MovieModal = ({ movie, isOpen, onClose, user }: MovieModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
-      // Load existing reviews from localStorage
+      
       const storedReviews = localStorage.getItem(`reviews_${movie.id}`);
       if (storedReviews) {
         setReviews(JSON.parse(storedReviews));
       }
 
-      // Load user's existing rating if any
+    
       if (user) {
         const storedRating = localStorage.getItem(`rating_${user.id}_${movie.id}`);
         if (storedRating) {
@@ -73,10 +73,10 @@ const MovieModal = ({ movie, isOpen, onClose, user }: MovieModalProps) => {
       createdAt: new Date().toISOString(),
     };
 
-    // Save user's rating
+   
     localStorage.setItem(`rating_${user.id}_${movie.id}`, JSON.stringify(newRating));
 
-    // Update reviews list
+   
     const updatedReviews = reviews.filter((r: any) => r.userId !== user.id);
     updatedReviews.unshift(newRating);
     setReviews(updatedReviews);
