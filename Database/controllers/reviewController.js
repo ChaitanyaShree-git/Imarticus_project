@@ -1,7 +1,7 @@
 const Review = require('../models/reviewModel');
 const Movie = require('../models/moviesModel');
 
-// 🔘 Create a Review
+
 exports.createReview = async (req, res) => {
   try {
     const { content, rating } = req.body;
@@ -31,7 +31,6 @@ exports.createReview = async (req, res) => {
   }
 };
 
-// 🔘 Get All Reviews for a Movie
 exports.getReviewsByMovie = async (req, res) => {
   try {
     const movieTitle = decodeURIComponent(req.params.movieTitle);
@@ -49,7 +48,6 @@ exports.getReviewsByMovie = async (req, res) => {
   }
 };
 
-// 🔘 Update Review by User
 exports.updateReview = async (req, res) => {
   try {
     const reviewId = req.params.reviewId;
@@ -76,7 +74,6 @@ exports.updateReview = async (req, res) => {
   }
 };
 
-// 🔘 Delete Review by User
 exports.deleteReview = async (req, res) => {
   try {
     const reviewId = req.params.reviewId;
